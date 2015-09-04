@@ -4,9 +4,9 @@ from scrapy.spiders import Spider
 import scrapy
 import codecs
 
-class TopLabel(Spider):
+class Top250(Spider):
 	name = "top250"
-	allow_domains = ['movie.douban.com']
+	allowed_domains = ['movie.douban.com']
 	start_urls = [
 		"http://movie.douban.com/top250",
 	]
