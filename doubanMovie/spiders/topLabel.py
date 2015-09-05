@@ -10,8 +10,9 @@ class TopLabel(CrawlSpider):
 	allowed_domains = ["movie.douban.com"]
 	start_urls = ["http://movie.douban.com/top250?start=0&filter=&type=",]
 	rules = ( 
-		Rule(LinkExtractor(allow=('http://movie.douban.com/top250?.*', ), ), follow=True), 
-		Rule(LinkExtractor(allow=('http://movie.douban.com/subject/\d+', )), callback='parse_label'), 
+		Rule(LinkExtractor(allow=(r'http://movie.douban.com/top250?.*', ), ), follow=True), 
+		Rule(LinkExtractor(allow=(r'http://movie.douban.com/subject/\d+/$', )), callback='parse_label', follow=True), 
+		Rule(LinkExtractor(allow=(r'http://movie.douban.com/subject/\d+/?from=subject-page', )), callback='parse_label', follow=True), 
 	) 
 	def parse_label(self, response):
 		index = 1
@@ -23,3 +24,6 @@ class TopLabel(CrawlSpider):
 				file.write('\n' + path.extract()[0])
 				file.close()
 			index += 1
+
+	def add_cookie(self, request):
+		pass
