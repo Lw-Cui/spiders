@@ -8,7 +8,9 @@ import codecs
 class TopLabel(CrawlSpider):
 	name = "topLabel"
 	allowed_domains = ["movie.douban.com"]
-	start_urls = ["http://movie.douban.com/top250?start=0&filter=&type=",]
+	start_urls = [
+		"http://movie.douban.com/top250?start=0&filter=&type=",
+		]
 	rules = ( 
 		Rule(LinkExtractor(allow=(r'http://movie.douban.com/top250?.*', ), ), follow=True), 
 		Rule(LinkExtractor(allow=(r'http://movie.douban.com/subject/\d+/$', )), callback='parse_label', follow=True), 

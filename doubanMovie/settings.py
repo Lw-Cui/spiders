@@ -30,6 +30,7 @@ RANDOMIZE_DOWNLOAD_DELAY = True
 #CONCURRENT_REQUESTS_PER_IP=16
 
 # Disable cookies (enabled by default)
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED=False
@@ -51,6 +52,9 @@ RANDOMIZE_DOWNLOAD_DELAY = True
 DOWNLOADER_MIDDLEWARES = {
     'doubanMovie.middlewares.useragent.MyUserAgentMiddleware': 543,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+
+    'doubanMovie.middlewares.proxy.MyProxyMiddleware': 100,
+    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 110,
 }
 
 # Enable or disable extensions
