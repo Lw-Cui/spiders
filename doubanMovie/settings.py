@@ -46,14 +46,15 @@ COOKIES_ENABLED = False
 #    'doubanMovie.middlewares.MyCustomSpiderMiddleware': 543,
 #}
 
-CRAWLERA_ENABLED = True
-CRAWLERA_USER = '479d94b96a7843cc99f7d0617da4abd2'
-CRAWLERA_PASS = ''
+# Enable or disable crawlera middlewares
+#CRAWLERA_ENABLED = True
+#CRAWLERA_USER = '479d94b96a7843cc99f7d0617da4abd2'
+#CRAWLERA_PASS = ''
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-	'scrapy_crawlera.CrawleraMiddleware': 600,
+	#'scrapy_crawlera.CrawleraMiddleware': 600,
     #'doubanMovie.middlewares.useragent.MyUserAgentMiddleware': 543,
     #'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
 
