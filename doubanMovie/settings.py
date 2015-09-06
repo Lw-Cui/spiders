@@ -23,7 +23,7 @@ NEWSPIDER_MODULE = 'doubanMovie.spiders'
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 0
+#DOWNLOAD_DELAY = 0
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN=16
 #CONCURRENT_REQUESTS_PER_IP=16
@@ -46,14 +46,19 @@ COOKIES_ENABLED = False
 #    'doubanMovie.middlewares.MyCustomSpiderMiddleware': 543,
 #}
 
+CRAWLERA_ENABLED = True
+CRAWLERA_USER = '479d94b96a7843cc99f7d0617da4abd2'
+CRAWLERA_PASS = ''
+
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    'doubanMovie.middlewares.useragent.MyUserAgentMiddleware': 543,
-    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+	'scrapy_crawlera.CrawleraMiddleware': 600,
+    #'doubanMovie.middlewares.useragent.MyUserAgentMiddleware': 543,
+    #'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
 
-    'doubanMovie.middlewares.proxy.MyProxyMiddleware': 100,
-    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
+    #'doubanMovie.middlewares.proxy.MyProxyMiddleware': 100,
+    #'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
 }
 
 # Enable or disable extensions
